@@ -10,7 +10,7 @@ __copyright__ = "(c) 2020 Max Levine"
 
 try:
     from flask import request
-    import markupsafe as Markup
+    import markupsafe
     import requests
 except ImportError as ex:
     print("Missing dependencies")
@@ -56,7 +56,7 @@ class XCaptcha(object):
 
             @app.context_processor
             def get_code():
-                return dict(xcaptcha=Markup(self.get_code()))
+                return dict(xcaptcha=markupsafe.Markup(self.get_code()))
 
         elif site_key is not None:
             self.site_key = site_key
