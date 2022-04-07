@@ -10,7 +10,7 @@ __copyright__ = "(c) 2020 Max Levine"
 
 try:
     from flask import request
-    from jinja2 import Markup
+    import markupsafe as Markup
     import requests
 except ImportError as ex:
     print("Missing dependencies")
